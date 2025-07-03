@@ -1,0 +1,48 @@
+version: '3'
+services:
+  master:
+    build: .
+    command: python3 distribuida.py
+    depends_on:
+      - worker1
+      - worker2
+      - worker3
+      - worker4
+      - worker5
+      - worker6
+
+  worker1:
+    build: .
+    command: python3 worker.py
+    ports:
+      - "8761:8765"
+
+  worker2:
+    build: .
+    command: python3 worker.py
+    ports:
+      - "8762:8765"
+
+  worker3:
+    build: .
+    command: python3 worker.py
+    ports:
+      - "8763:8765"
+
+  worker4:
+    build: .
+    command: python3 worker.py
+    ports:
+      - "8764:8765"
+
+  worker5:
+    build: .
+    command: python3 worker.py
+    ports:
+      - "8765:8765"
+
+  worker6:
+    build: .
+    command: python3 worker.py
+    ports:
+      - "8766:8765"
